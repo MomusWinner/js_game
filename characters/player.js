@@ -1,7 +1,8 @@
-class Player{
+import {Person} from "./person.js"
+
+class Player extends Person{ 
     constructor(name, health){
-        this.name = name
-        this.health = health
+        super(name, health)
         this.inventory = []
     }
 }

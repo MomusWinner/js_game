@@ -1,4 +1,4 @@
-import {player} from './player.js';
+import { player } from './characters/player.js';
 import {Location} from './location.js';
 import {Choice, ChoiceEvent} from './event.js';
 
