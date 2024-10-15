@@ -1,19 +1,26 @@
 import { settings } from './config.js';
 import readline from 'readline';
 
-export async function printLine(text, speed) {
+function printHelper(text, speed, resolve) {
     if (!text.length) {
         process.stdout.write('\n')
+        resolve()
         return
     }
     
     const chars = text.split('')
     const head = chars[0]
     const tail = text.slice(1)
-    setTimeout(() => {
+    setTimeout( () => {
         process.stdout.write(head)
-        printLine(tail)
+        printHelper(tail, speed, resolve)
     }, speed ?? settings.charPrintTime)
+}
+
+export async function printLine(text, speed) {
+    return new Promise((resolve) => {
+        printHelper(text, speed, resolve)
+    })
 }
 
 
