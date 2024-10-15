@@ -16,12 +16,13 @@ export class PhraseEvent extends Event{
     }
 
     async start(){
-        console.log(typeof(this.person))
         if(this.person === player)
             console.log("★ " + this.person.name)
         else
             console.log("✩ " + this.person.name)
+        console.log("-----------------")
         await printLine(this.text)
+        console.log()
     }
 }
 
