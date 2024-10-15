@@ -1,6 +1,11 @@
-import { player } from './player.js';
-import { askQuestion } from './utils.js'
+import {player} from './player.js';
+import {Location} from './location.js';
+import {Choice, ChoiceEvent} from './event.js';
 
-console.log(await askQuestion('are'))
-console.log(await askQuestion('are'))
-console.log(await askQuestion('are'))
+
+let choice1 = new Choice("choice1", () => {console.log("response  1");})
+let choice_event = new ChoiceEvent([choice1])
+
+let forest = new Location("Лес", "Лес..", choice_event)
+
+await forest.start()

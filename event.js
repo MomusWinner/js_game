@@ -1,3 +1,5 @@
+import { askQuestion } from "./utils.js";
+
 export class Event{
     constructor(){
     }
@@ -8,12 +10,13 @@ export class Event{
 }
 
 export class Choice{
-    constructor(text){
+    constructor(text, onSelected){
         this.text = text
+        this.onSelected = onSelected
     }
 
     apply() {
-        throw new Error('Method \'apply()\' must be implemented.');
+        this.onSelected()
     }
 }
 
@@ -23,8 +26,14 @@ export class ChoiceEvent extends Event{
         this.choices = choices
     }
 
-    start(){
+    async start(){
         this.print_choices()
+        let i = await askQuestion("Введите номер выбора: ")
+        if  (!(!isNaN(i) && i <= this.choices.length && i >= 1)){
+            console.log("Введи нормально додик")
+            await this.start()
+        }
+        this.choices[i - 1].apply()
     }
 
     print_choices(){
