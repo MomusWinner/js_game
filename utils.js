@@ -1,7 +1,7 @@
 import { settings } from './config.js';
 import readline from 'readline';
 
-async function printLine(text) {
+export async function printLine(text, speed) {
     if (!text.length) {
         process.stdout.write('\n')
         return
@@ -13,7 +13,7 @@ async function printLine(text) {
     setTimeout(() => {
         process.stdout.write(head)
         printLine(tail)
-    }, settings.charPrintTime)
+    }, speed ?? settings.charPrintTime)
 }
 
 
@@ -23,7 +23,8 @@ export function askQuestion(question) {
             input: process.stdin,
             output: process.stdout
         });
-        rl.question(question + '\n', (answer) => {
+        printLine(question)
+        rl.question('', (answer) => {
             rl.close()
             resolve(answer)
         });
