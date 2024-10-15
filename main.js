@@ -1,15 +1,6 @@
-import {player} from './player.js';
+import { player } from './player.js';
+import { askQuestion } from './utils.js'
 
-import readline from 'readline';
-
-const rl = readline.createInterface({
-  input: process.stdin, 
-  output: process.stdout 
-});
-
-const askQuestion = (question) => {
-  return new Promise((resolve) => rl.question(question, resolve));
-};
-
-
-console.log(player)
+console.log(await askQuestion('are'))
+console.log(await askQuestion('are'))
+console.log(await askQuestion('are'))
