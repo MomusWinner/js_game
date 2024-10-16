@@ -14,7 +14,7 @@ export class Attack {
      * @param {Person} person 
      */
     hitPerson(person) {
-        person.health -= this.damage
+        person.takeDamage(this.damage)
     }
 }
 
@@ -28,17 +28,10 @@ export class Enemy extends Person {
         super(name, health)
         this.attacks = attacks
     }
-
-    getAttack() {
-        const randomIndex = Math.floor(Math.random() * arr.length);
-        return this.attacks[randomIndex]
-    }
     
-    /**
-     * @param {Person} person 
-     */
-    attack(person) {
-        this.getAttack().hitPerson(person)
+    getAttack() {
+        const randomIndex = Math.floor(Math.random() * this.attacks.length);
+        return this.attacks[randomIndex]
     }
 }
  
