@@ -20,7 +20,8 @@ export class FightEvent extends Event {
     }
 
     async start() {
-        await printLine(`Вы встетили ${this.enemy.name}`);
+        await printLine(`Вы встетили ${this.enemy.name} с ${this.enemy.health} хп`);
+        await printLine("------------------")
         await this.enemyAttack()
     }
 

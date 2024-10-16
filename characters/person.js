@@ -28,14 +28,15 @@ export class Person{
      */
     async attack(person) {
         const attack = await this.getAttack()
-        await printLine(`${this.name} атакует ${person.name} с помощью ${attack.name} нанося ${attack.damage} урона`)
-        attack.hitPerson(person)
+        await printLine(`➳ ${this.name} атакует ${person.name} с помощью ${attack.name} нанося ${attack.damage} урона`)
+        await attack.hitPerson(person)
     }
 
-    takeDamage(amount) {
+     async takeDamage(amount) {
         this.health -= amount
+        await printLine(`  У ${this.name} осталось ${this.health} хп\n`)
         if (this.health <= 0) {
-            this.death()
+            await this.death()
         }
     }
     

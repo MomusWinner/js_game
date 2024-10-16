@@ -13,8 +13,8 @@ export class Attack {
     /**
      * @param {Person} person 
      */
-    hitPerson(person) {
-        person.takeDamage(this.damage)
+    async hitPerson(person) {
+        await person.takeDamage(this.damage)
     }
 }
 
