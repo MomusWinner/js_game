@@ -24,13 +24,13 @@ export async function printLine(text, speed) {
 }
 
 
-export function askQuestion(question) {
+export function askQuestion(question, speed) {
     return new Promise((resolve) => {
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
         });
-        printLine(question)
+        printLine(question, speed)
         rl.question('', (answer) => {
             rl.close()
             resolve(answer)
