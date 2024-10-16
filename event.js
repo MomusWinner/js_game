@@ -10,7 +10,7 @@ export class Event{
 }
 
 export class Choice{
-    constructor(text, onSelected){
+    constructor(text, onSelected) {
         this.text = text
         this.onSelected = onSelected
     }
@@ -21,24 +21,28 @@ export class Choice{
 }
 
 export class ChoiceEvent extends Event{
-    constructor(choices){
+    /**
+     * @param {Array<Choice>} choices 
+     * @param {string} [question="Введите номер выбора: "] 
+     */
+    constructor(choices, question = "Введите номер выбора: "){
         super()
         this.choices = choices
+        this.question = question
     }
 
     async start(){
         this.print_choices()
-        let i = await askQuestion("Введите номер выбора: ", 0)
-        while(!(!isNaN(i) && i <= this.choices.length && i >= 1)){
+        let i = await askQuestion(this.question)
+        while  (!(!isNaN(i) && i <= this.choices.length && i >= 1)){
             console.log("Введи нормально додик")
-            i = await askQuestion("Введите номер выбора: ", 0)
+            i = await askQuestion(this.question, 0)
         }
         this.choices[i - 1].apply()
     }
 
     print_choices(){
         for (let i = 0; i < this.choices.length; i++) {
-            /** @type {Choice} */
             const choice = this.choices[i];
             console.log((i + 1) + ". " + choice.text)
         }
