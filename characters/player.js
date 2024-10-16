@@ -28,7 +28,12 @@ class Player extends Person{
         return chosenAttack
     }
 
-    async grab_item(id, object){
+    async grabAttack(attack) {
+        this.attacks.push(attack)
+        await printLine(`-- У вас появилась новая атака (${attack.name})! --`)
+    }
+
+    async grabItem(id, object) {
         this.inventory[id] = object
         await printLine(`-- Вы подобрали (${id})! --`)
     }
