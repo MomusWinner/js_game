@@ -28,10 +28,10 @@ export class ChoiceEvent extends Event{
 
     async start(){
         this.print_choices()
-        let i = await askQuestion("Введите номер выбора: ")
-        if  (!(!isNaN(i) && i <= this.choices.length && i >= 1)){
+        let i = await askQuestion("Введите номер выбора: ", 0)
+        while(!(!isNaN(i) && i <= this.choices.length && i >= 1)){
             console.log("Введи нормально додик")
-            await this.start()
+            i = await askQuestion("Введите номер выбора: ", 0)
         }
         this.choices[i - 1].apply()
     }
