@@ -1,4 +1,4 @@
-import { Choice, ChoiceEvent } from "../event.js"
+import { Choice, ChoiceEvent } from "../events/event.js"
 import { printLine } from "../utils.js"
 import { Attack } from "./enemy.js"
 import {Person} from "./person.js"

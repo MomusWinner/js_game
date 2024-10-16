@@ -1,5 +1,5 @@
-import { Event } from '../event.js';
-import { Person } from './person.js';
+import { Event } from './event.js';
+import { Person } from '../characters/person.js';
 import { printLine } from '../utils.js';
 
 

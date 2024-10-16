@@ -1,7 +1,7 @@
-import { Person } from "./characters/person.js";
-import { player } from "./characters/player.js";
+import { Person } from "../characters/person.js";
+import { player } from "../characters/player.js";
 import { Event } from "./event.js";
-import {printLine} from "./utils.js"
+import {printLine} from "../utils.js"
 
 export class PhraseEvent extends Event{
     /**

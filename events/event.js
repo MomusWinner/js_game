@@ -1,4 +1,4 @@
-import { askQuestion } from "./utils.js";
+import { askQuestion } from "../utils.js";
 
 export class Event{
     constructor(){
