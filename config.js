@@ -1,3 +1,3 @@
 export const settings = {
-    charPrintTime: 100
+    charPrintTime: 10
 }
