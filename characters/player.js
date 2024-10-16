@@ -6,7 +6,7 @@ import {Person} from "./person.js"
 class Player extends Person{ 
     constructor(name, health){
         super(name, health)
-        this.inventory = []
+        this.inventory = {}
         this.attacks = [
             new Attack("Удар молотком", 50),
             new Attack("Удар головой", 100)
@@ -26,6 +26,11 @@ class Player extends Person{
 
         await new ChoiceEvent(choices, "Выберите атаку:").start()
         return chosenAttack
+    }
+
+    async grab_item(id, object){
+        this.inventory[id] = object
+        await printLine(`-- Вы подобрали (${id})! --`)
     }
 }
 
