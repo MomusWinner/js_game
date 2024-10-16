@@ -21,8 +21,7 @@ export class PhraseEvent extends Event{
         else
             console.log("✩ " + this.person.name)
         console.log("-----------------")
-        await printLine(this.text)
-        console.log()
+        await printLine("☞  " + this.text + "\n")
     }
 }
 
