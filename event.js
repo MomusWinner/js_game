@@ -40,7 +40,7 @@ export class ChoiceEvent extends Event{
         for (let i = 0; i < this.choices.length; i++) {
             /** @type {Choice} */
             const choice = this.choices[i];
-            console.log("1. " + choice.text)
+            console.log(i + ". " + choice.text)
         }
     }
 }
