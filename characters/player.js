@@ -35,7 +35,12 @@ class Player extends Person{
 
     async grabItem(id, object) {
         this.inventory[id] = object
-        await printLine(`-- Вы подобрали (${id})! --`)
+        await printLine(`-- Вы подобрали (${object.name})! --`)
+    }
+
+    async death(){
+        printLine("Вы умерли")
+        process.exit()
     }
 }
 
