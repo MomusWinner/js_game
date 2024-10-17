@@ -17,6 +17,7 @@ const villageDialog = new DialogEvent([
     new PhraseEvent(grandfather, "Теперь тебе нужно победить злого короля, так как этот чёрт поднял налоги на 20%."),
     new PhraseEvent(player, "Какой он злой. Его нужно одолеть."),
     new PhraseEvent(narrator, "Путник был очень зол на злого короля.Решил во что бы то ни стало победить его, отправившись в королевство."),
+    new PhraseEvent(narrator, "После изнурительной дороги путник очень устал. Он решил направится в ближайший паб."),
 ])
 
 export const village = new LocationEvent("Деревня", "Вонючая деревня", villageDialog)
