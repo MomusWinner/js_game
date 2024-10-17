@@ -5,6 +5,7 @@ import { Attack, Enemy } from '../characters/enemy.js';
 import { FightEvent } from '../events/fight.js';
 import { Choice, ChoiceEvent } from '../events/event.js';
 import { narrator } from '../characters/characters.js';
+import { village } from './village.js';
 
 
 const bear = new Enemy("Медведь", 30, [
@@ -14,9 +15,7 @@ const bear = new Enemy("Медведь", 30, [
 
 let dialog_d = new DialogEvent([
     new PhraseEvent(player, "text text"),
-    new FightEvent(player, bear, 
-        {start:async () => await player.grabItem("skin", {name:"Шкура медведя"})},
-        {start:async () => {}}),
+    new FightEvent(player, bear, {start:async () => await player.grabItem("skin", {name:"Шкура медведя"})}),
     new PhraseEvent(narrator, "Путник сильно проголодался. Под деревом он види пару грибочков."),
     new ChoiceEvent([
         new Choice("съесть гриб", async () => {
@@ -26,8 +25,9 @@ let dialog_d = new DialogEvent([
             await (new PhraseEvent(narrator, "Путник умер от голода.")).start()
             await player.death()
         })
-    ], "Путник сильно проголодался. Под деревом он види пару грибочков")
-    
+    ], "Путник сильно проголодался. Под деревом он види пару грибочков"),
+    new PhraseEvent(narrator, "Путник, под кайфом от лесных грибочков, дошёл до деревни."),
+    village
 ])
 
 export const forest = new LocationEvent("Лес", "Вонючий лес", dialog_d)
