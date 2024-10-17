@@ -10,11 +10,10 @@ import { village } from './village.js';
 
 const bear = new Enemy("Медведь", 30, [
     new Attack("укус", 20),
-    new Attack("хук", 15)
+    new Attack("хук левой", 15)
 ])
 
 let dialog_d = new DialogEvent([
-    new PhraseEvent(player, "text text"),
     new FightEvent(player, bear, {start:async () => await player.grabItem("skin", {name:"Шкура медведя"})}),
     new PhraseEvent(narrator, "Путник сильно проголодался. Под деревом он види пару грибочков."),
     new ChoiceEvent([
