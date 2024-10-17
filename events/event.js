@@ -15,8 +15,8 @@ export class Choice{
         this.onSelected = onSelected
     }
 
-    apply() {
-        this.onSelected()
+    async apply() {
+        await this.onSelected()
     }
 }
 
@@ -38,7 +38,7 @@ export class ChoiceEvent extends Event{
             console.log("Введи нормально додик")
             i = await askQuestion(this.question, 0)
         }
-        this.choices[i - 1].apply()
+        await this.choices[i - 1].apply()
     }
 
     print_choices(){
