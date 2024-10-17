@@ -7,10 +7,7 @@ class Player extends Person{
     constructor(name, health){
         super(name, health)
         this.inventory = {}
-        this.attacks = [
-            new Attack("Удар молотком", 50),
-            new Attack("Удар головой", 100)
-        ]
+        this.attacks = []
     }
 
     async getAttack() {
