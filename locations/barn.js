@@ -21,4 +21,4 @@ const start_d = new DialogEvent([
     forest
 ])
 
-export const barn = new LocationEvent("Срарай", "Вонючий сарай..", start_d)
+export const barn = new LocationEvent("Сарай", "Вонючий сарай..", start_d)
