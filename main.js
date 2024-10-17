@@ -1,28 +1,36 @@
 import { player } from './characters/player.js';
-import {Location} from './location.js';
-import {Choice, ChoiceEvent} from './event.js';
-import {DialogEvent, PhraseEvent} from './dialog.js'
+import {LocationEvent} from './events/location.js';
+import {Choice, ChoiceEvent} from './events/event.js';
+import {DialogEvent, PhraseEvent} from './events/dialog.js'
 import { Person } from './characters/person.js';
+import { Attack, Enemy } from './characters/enemy.js';
+import { FightEvent } from './events/fight.js';
 
-let choice1 = new Choice("choice1", () => {console.log("response  1");})
-let choice_event = new ChoiceEvent([choice1])
+const narrator = Person(". . .")
+const girl = new Person("Девочка", 10)
+const shovel = new Attack("Лопата", 10)
+const bear = new Enemy("Медведь", 30, [
+    new Attack("укус", 20),
+    new Attack("хук", 15)
+])
 
-let forest = new Location("Лес", "Лес..", choice_event)
+let start_d = new DialogEvent([
+    new PhraseEvent(girl, "Привет путник! Тебе нужно победить злого короля."),
+    new PhraseEvent(player, "Хорошо"),
+    new PhraseEvent(girl, "Держи стартовое оружие"),
+    {start: () => {player.grabAttack(shovel)}},
+    new PhraseEvent(player, "С кайфом! Как мне этой палкой вонючей убить короля ААААААА?!!!?"),
+    new PhraseEvent(girl, "не мороси ты эээээээ. Иди на юг, брат, там мой дед, он даст тебе нормальное оружие."),
+    new PhraseEvent(player, "Ок"),
+    new PhraseEvent(narrator, "Путник отправился на юг."),
+    new FightEvent(player, bear)
+])
+
+let barn = new LocationEvent("Срарай", "Вонючий сарай..", start_d)
+
+// ------------------------
+let forest = new LocationEvent("Лес", "Вонючий лес")
 
 
-let ashot = new Person("Ashot", 1000)
 
-
-let phrases = [
-  new PhraseEvent(player, "Hello"),
-  new PhraseEvent(ashot, "a.."),
-  new PhraseEvent(player, "a"),
-  new PhraseEvent(ashot, "o.."),
-]
-
-let dial = new DialogEvent(phrases)
-
-await phrases[0].start()
-await phrases[1].start()
-// await dial.start()
-// await forest.start()
+await barn.start()
