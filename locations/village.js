@@ -3,7 +3,7 @@ import { LocationEvent } from '../events/location.js';
 import { DialogEvent, PhraseEvent } from '../events/dialog.js'
 import { Person } from '../characters/person.js';
 import { Attack } from '../characters/enemy.js';
-import { narrator } from './barn.js'
+import { narrator } from '../characters/characters.js';
 
 const oldFuck = new Person("Дедушка", 10)
 const sword = new Attack("Меч", 20)
