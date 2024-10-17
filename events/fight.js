@@ -29,19 +29,19 @@ export class FightEvent extends Event {
         await this.enemy.attack(this.player)
         if (this.player.health <= 0) {
             if (this.loseEvent) {
-                this.loseEvent.start()
+                await this.loseEvent.start()
             }
             return
         }
-        this.playerAttack()
+        await this.playerAttack()
     }
 
     async playerAttack() {
         await this.player.attack(this.enemy)
         if (this.enemy.health <= 0) {
-            this.winEvent.start()
+            await this.winEvent.start()
             return
         }
-        this.enemyAttack()
+        await this.enemyAttack()
     }
 }

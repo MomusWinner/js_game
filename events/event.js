@@ -4,7 +4,7 @@ export class Event{
     constructor(){
     }
 
-    start(){
+    async start(){
         throw new Error('Method \'start()\' must be implemented.');
     }
 }
