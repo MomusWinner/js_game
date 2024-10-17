@@ -1,7 +1,8 @@
 import { Person } from "../characters/person.js";
 import { player } from "../characters/player.js";
 import { Event } from "./event.js";
-import {printLine} from "../utils.js"
+import {askQuestion, printLine} from "../utils.js"
+import { settings } from '../config.js'
 
 export class PhraseEvent extends Event{
     /**
@@ -38,6 +39,7 @@ export class DialogEvent extends Event{
     async start(){
         for (let i = 0; i < this.dialogEvents.length; i++) {
             await this.dialogEvents[i].start()
+            await askQuestion("", settings.charPrintTime, false)
         }
     }
 }
