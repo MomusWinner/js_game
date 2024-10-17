@@ -8,7 +8,7 @@ export class FightEvent extends Event {
      * @param {Player} player
      * @param {Person} enemy
      * @param {Event} winEvent 
-     * @param {Event} loseEvent 
+     * @param {Event | undefined} loseEvent 
      */
     constructor(player, enemy, winEvent, loseEvent) {
         super()
@@ -28,7 +28,9 @@ export class FightEvent extends Event {
     async enemyAttack() {
         await this.enemy.attack(this.player)
         if (this.player.health <= 0) {
-            this.loseEvent.start()
+            if (this.loseEvent) {
+                this.loseEvent.start()
+            }
             return
         }
         this.playerAttack()
