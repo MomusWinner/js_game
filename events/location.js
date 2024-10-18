@@ -5,10 +5,10 @@ export class LocationEvent extends Event{
         super()
         this.name = name
         this.description = description
-        this.start_event = start_event
+        this.startEvent = start_event
     }
 
     start(){
-        this.start_event.start()
+        this.startEvent.start()
     }
 }
