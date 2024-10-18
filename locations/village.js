@@ -9,7 +9,6 @@ import { kingdom } from './kingdom.js'
 const grandfather = new Person("Дедушка", 10)
 const sword = new Attack("Меч", 20)
 const villageDialog = new DialogEvent([
-    new PhraseEvent(narrator, "Путник, под кайфом от лесных грибочков, дошёл до деревни."),
     new PhraseEvent(grandfather, "Привет, путник. Ты что под кайфом?"),
     new PhraseEvent(player, "Я не под кайфом, я просто счастлив."),
     new PhraseEvent(grandfather, "Ну ладноооо. Оккккк. Держи меч"),
@@ -18,7 +17,6 @@ const villageDialog = new DialogEvent([
     new PhraseEvent(grandfather, "Теперь тебе нужно победить злого короля, так как этот чёрт поднял налоги на 20%."),
     new PhraseEvent(player, "Какой он злой. Его нужно одолеть."),
     new PhraseEvent(narrator, "Путник был очень зол на злого короля.Решил во что бы то ни стало победить его, отправившись в королевство."),
-    new PhraseEvent(narrator, "После изнурительной дороги путник очень устал. Он решил направится в ближайший паб."),
     kingdom
 ])
 

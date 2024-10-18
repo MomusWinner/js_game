@@ -5,6 +5,7 @@ import { Attack, Enemy } from '../characters/enemy.js';
 import { FightEvent } from '../events/fight.js';
 import { narrator } from '../characters/characters.js';
 import { Choice, ChoiceEvent } from '../events/event.js';
+import { kingsEepyRoom } from './eepy_room.js'
 
 const barmen = new Enemy("Бармен", 60, [
     new Attack("Удар розочкой", 7),
@@ -12,7 +13,8 @@ const barmen = new Enemy("Бармен", 60, [
 ])
 
 const nextLoc = new DialogEvent([
-    new PhraseEvent(narrator, "После изумительного вечера, путник решил направится в покои короля.")
+    new PhraseEvent(narrator, "После изумительного вечера, путник решил направится в покои короля."),
+    kingsEepyRoom
 ])
 
 const barmenDialog = new DialogEvent([

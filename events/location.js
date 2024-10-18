@@ -1,3 +1,4 @@
+import { printLine } from "../utils.js"
 import { Event } from "./event.js"
 
 export class LocationEvent extends Event{
@@ -8,7 +9,9 @@ export class LocationEvent extends Event{
         this.startEvent = start_event
     }
 
-    start(){
+    async start() {
+        await printLine(`Вы пришли в ${this.name}`)
+        await printLine(`-----------------------------`)
         this.startEvent.start()
     }
 }
